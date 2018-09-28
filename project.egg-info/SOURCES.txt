@@ -1,0 +1,10 @@
+MANIFEST.in
+project/__init__.py
+project/app.py
+project/project.py
+project/schema.sql
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/requires.txt
+project.egg-info/top_level.txt

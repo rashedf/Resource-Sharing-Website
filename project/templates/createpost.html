@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Create Post
+{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+    <h2>Create Post</h2>
+    </div>
+	<form action="{{url_for('createpost', topic_id = topic_id)}}"class=" center-block text-center" method="post">
+		<div class="form-inline">
+			<label class="" for="title">Title</label>
+			<input class="form-control" id="title" name="title" placeholder="Title"><br>
+			<label class="" for="body">Main Body</label>
+			<input class="form-control" id="body" name="body" placeholder="body"><br>
+			<button type="submit" class="btn btn-primary">Post</button>
+		</div>
+	</form>
+
+{% endblock %}

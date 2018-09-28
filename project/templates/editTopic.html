@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}
+ Create Topic
+{% endblock %}
+
+{% block body %}
+    <div class="topic jumbotron text-center">
+    <h2>Create Topic</h2>
+    </div>
+	<form action="{{url_for('editTopic', topic_id=topic.id)}}"class="editTopic center-block text-center" method="post">
+		<div class="form-inline">
+			<h3>Edit Topic</h3>
+			<label class="" for="topic">Topic</label>
+			<input class="form-control" id="topic" name="topicname" placeholder="{{topic.name}}">
+			<button type="submit" class="btn btn-primary">Edit Topic</button>
+		</div>
+	</form>
+
+{% endblock %}

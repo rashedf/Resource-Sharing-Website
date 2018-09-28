@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block title %}
+ User 
+{% endblock %}
+
+{% block body %}
+	<a href="{{url_for('userProfile', user = user)}}">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	 <h3 class="panel-title text-left"><b>{{session.loggedInUser}}</b></h3>
+	 </div>
+ 	</div>
+	</a>
+    <div class="post jumbotron">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+   		 <h3 class="panel-title">Account Information</h3>
+	 	</div>
+                <div class="panel-body">
+		    <font style="padding-left:5px;"> <b>First name:</b> {{user[0]['fname']}}</font><br>
+                    <font style="padding-left:5px;"> <b>Last name:</b> {{user[0]['lname']}}</font>
+                </div>
+	</div>
+        <form action="{{url_for('userProfile')}}" method="post">
+            <br><button type="submit" class="btn btn-primary">Delete Account</button>
+        </form>
+    </div>
+{% endblock %}

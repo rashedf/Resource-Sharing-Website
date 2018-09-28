@@ -1,0 +1,11 @@
+graft project/templates
+graft project/static
+include project/schema.sql
+include project/topic_interface.py
+include project/db.py
+include project/dbInterface.py
+include project/topic.py
+include project/post.py
+include project/post_interface.py
+include project/user.py
+include project/user_interface.py

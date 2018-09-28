@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+    <h2>Sign Up</h2>
+    </div>
+	 {% if error %}<p class="error"><strong>Error:</strong> {{ error }}{% endif %}
+	<form action="{{url_for('signup')}}"class="createtopic center-block text-center" method="post">
+		<div class="form-inline">
+			<label class="" for="username">Username</label>
+			<input class="form-control" id="username" name="username" placeholder="username"><br>
+			<label class="" for="password">Password</label>
+			<input class="form-control" id="password" name="password" type=password placeholder="password"><br>
+			<label class="" for="fname">First Name</label>
+			<input class="form-control" id="fname" name="fname" placeholder="fname"><br>
+			<label class="" for="lname">Last Name</label>
+			<input class="form-control" id="lname" name="lname" placeholder="lname"><br>
+			<button type="submit" class="btn btn-primary">Sign Up</button>
+		</div>
+	</form>
+
+
+{% endblock %}

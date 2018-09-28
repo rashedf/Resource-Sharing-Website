@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{topic.name}}
+{% endblock %}
+
+{% block body %}
+	<a href="{{url_for('show_topicPosts', topic_id = topic.id)}}">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	 <h3 class="panel-title text-center">{{topic.name}}</h3>
+	 </div>
+ 	</div>
+	</a>
+    <div class="jumbotron text-center">
+    <h3 class="text-info">{{topic.name}}</h3>
+	<span>Some Random Text about the topic. Maybe the topic needs a description attribute just to have some additional data on what the topic is focusing on</span>
+	<br><br>
+	{% if session.loggedIn %}
+	<a href="{{url_for('createpost', topic_id = topic.id)}}" class="topic btn btn-primary">Create Post</a>
+	<a href="{{url_for('subscribe', topic_id=topic.id)}}" class="topic btn btn-primary">Subscribe</a>
+	{% if session.loggedInUser == topic.created_by %}
+	<a href="{{url_for('editTopic', topic_id=topic.id)}}" class="topic btn btn-primary">Edit Topic</a>
+	{% endif %}
+	{% endif %}
+    </div>
+	<div class="container-fluid text-center">
+	    <ul class="post list-group">
+	    {% for post in posts %}
+		  <li class="list-group-item list-group-item-info"><a href="{{url_for('show_post', topic_id=post.topic_id, post_id=post.id)}}">{{ post.title }}</a></li>
+		
+	    {% else %}
+	      <li><em>Looking Empty. Why not Create a Post</em></li>
+	    {% endfor %}
+	    </ul>
+	</div>
+{% endblock %}

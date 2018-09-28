@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Edit Post
+{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron text-center">
+    <h2>Edit Post</h2>
+    </div>
+	<form action="{{url_for('editPost', topic_id = post.topic_id, post_id = post.id)}}"class=" center-block text-center" method="POST">
+		<div class="form-inline">
+			<label class="" for="title">Title</label>
+			<input class="form-control" id="title" name="title" placeholder="{{post.title}}"><br>
+			<label class="" for="body">Main Body</label>
+			<input class="form-control" id="body" name="body" placeholder="{{post.main_body}}"><br>
+			<button type="submit" class="btn btn-primary">Edit Post</button>
+		</div>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+    <h1>Welcome To Comp2005 Project</h1>
+    <p class="lead">Interesting Topics</p>
+    </div>
+	<div class="container-fluid text-center">
+	    <ul class="topics list-group">
+		{% for topic in topics %}
+		{% if topic.group_id == 0 %}
+		  <li class="list-group-item"><a href="{{url_for('show_topicPosts', topic_id=topic.id)}}">{{ topic.name }}</a></li>
+		{% endif %}
+	    {% else %}
+	      <li><em>Start A Discussion</em></li>
+	    {% endfor %}
+	    </ul>
+	</div>
+{% endblock %}

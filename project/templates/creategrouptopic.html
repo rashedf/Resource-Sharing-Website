@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block title %}
+ Create Topic
+{% endblock %}
+
+{% block body %}
+
+</div>
+</form>
+
+	{% for Member in Members %}
+		{% if loggedUserId == Member.user_id %}
+	
+		<div class="topic jumbotron text-center">
+		
+			
+			<h2>{{groupInfo.name}}</h2>
+			</div>
+			<form action="{{url_for('displaygroup', group_id=groupInfo.id)}}"class="displaygroup center-block text-center" method="post">
+				<div class="form-inline">
+					<label class="" for="topic">Topic</label>
+					<input class="form-control" id="topic" name="topic" placeholder="Topic">
+					<button type="submit" class="btn btn-primary">Create Topic</button>
+				</div>
+			</form>
+
+
+
+		
+			{% if admin %}
+			<h3>Add Member</h3>
+			<form action="{{url_for('memberAdd', group_id=groupInfo.id)}}"class="displaygroup center-block text-center" method="post">
+				<div class="form-inline">
+					<label class="" for="uname">User Name</label>
+					<input class="form-control" id="uname" name="uname" placeholder="Usename">
+					<button type="submit" class="btn btn-primary">Add to Group</button>
+				</div>
+			</form>
+			{% endif %}
+
+		<div class="topic jumbotron text-center">
+			<h2> Topic</h2>
+			</div>
+			</form>
+			{% for topic in grouptopic %}
+				<li class="list-group-item"><a href="{{url_for('show_topicPosts', topic_id=topic.id)}}">{{ topic.name }}</a></li>
+				{% else %}
+				<li><em>No Topics</em></li>
+				{% endfor %}
+
+
+		{% endif %}	
+		<li><em></em></li>
+	{% endfor %}
+
+	
+{% endblock %}

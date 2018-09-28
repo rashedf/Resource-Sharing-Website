@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Notifications
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid text-center">
+		<h1>Notifications</h1>
+	    <ul class="notifications list-group">
+	    {% for notification in notifications %}
+	      <li class="list-group-item list-group-item-info">{{ notification.title }}</li>
+          <li class="list-group-item list-group-item-primary">{{ notification.body }}</li>
+	    {% else %}
+	      <li><em>You currently have no notifications.</em></li>
+	    {% endfor %}
+	    </ul>
+	</div>
+
+{% endblock %}
+
+

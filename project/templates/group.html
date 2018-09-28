@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block body %}
+    <a href="{{url_for('show_group', Group_id = Group.id)}}">
+	<div class="panel panel-primary">
+	<div class="panel-heading">
+	 <h3 class="panel-title text-center">{{Group.name}}</h3>
+	 </div>
+ 	</div>
+    </a>
+{% endblock %}
